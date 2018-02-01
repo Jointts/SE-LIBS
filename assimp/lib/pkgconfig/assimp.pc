@@ -1,0 +1,11 @@
+prefix=/home/jointts/CLionProjects/OpenGL/lib/assimp
+exec_prefix=/home/jointts/CLionProjects/OpenGL/lib/assimp/
+libdir=/home/jointts/CLionProjects/OpenGL/lib/assimp/lib
+includedir=/home/jointts/CLionProjects/OpenGL/lib/assimp/include
+
+Name: Assimp
+Description: Import various well-known 3D model formats in an uniform manner.
+Version: 4.1.0
+Libs: -L${libdir} -lassimp
+Libs.private: -lstdc++ -lz
+Cflags: -I${includedir}
