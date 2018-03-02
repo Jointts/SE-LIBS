@@ -1,6 +1,8 @@
 # Setups all dependencies for NervousEngine
 
 
+FIND_PACKAGE(PkgConfig REQUIRED)
+
 # GLFW3 search path
 set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${CMAKE_CURRENT_LIST_DIR}/glfw/)
 # GLM search path
@@ -37,7 +39,7 @@ if (assimp_FOUND)
     message(${ASSIMP_LIBRARY_DIRS})
     message(${ASSIMP_LIBRARIES})
     include_directories(${ASSIMP_INCLUDE_DIRS})
-    target_link_libraries (NervousEngine ${ASSIMP_LIBRARIES})
+#    target_link_libraries (NervousEngine ${ASSIMP_LIBRARIES})
 endif(assimp_FOUND)
 
 find_package(freetype REQUIRED)
@@ -49,7 +51,7 @@ endif(freetype_FOUND)
 find_package(libnoise REQUIRED)
 if (libnoise_FOUND)
     include_directories(${LIBNOISE_INCLUDE_DIRS})
-    target_link_libraries (NervousEngine ${LIBNOISE_LIBRARIES})
+#    target_link_libraries (NervousEngine ${LIBNOISE_LIBRARIES})
 endif(libnoise_FOUND)
 
 # GLAD, header only library
