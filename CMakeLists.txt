@@ -1,63 +1,48 @@
 # Setups all dependencies for NervousEngine
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
 
-FIND_PACKAGE(PkgConfig REQUIRED)
+find_package(GLFW REQUIRED)
+if (GLFW_FOUND)
+    include_directories(${GLFW_INCLUDE_DIRS})
+    target_link_libraries (NervousEngine ${GLFW_LIBRARIES})
+endif(GLFW_FOUND)
 
-# GLFW3 search path
-set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${CMAKE_CURRENT_LIST_DIR}/glfw/)
-# GLM search path
-set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${CMAKE_CURRENT_LIST_DIR}/glm/)
-# BULLET search path
-set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${CMAKE_CURRENT_LIST_DIR}/bullet/)
-# ASSIMP search path
-set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${CMAKE_CURRENT_LIST_DIR}/assimp/)
-# FREETYPE search path
-set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${CMAKE_CURRENT_LIST_DIR}/freetype/)
-# LIBNOISE search path
-set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${CMAKE_CURRENT_LIST_DIR}/libnoise/)
+find_package(GLAD REQUIRED)
+if (GLAD_FOUND)
+    include_directories(${GLAD_INCLUDE_DIRS})
+endif(GLAD_FOUND)
 
-find_package(glfw3 REQUIRED)
-if (glfw3_FOUND)
-    include_directories(${GLFW3_INCLUDE_DIRS})
-    target_link_libraries (NervousEngine ${GLFW3_LIBRARIES})
-endif(glfw3_FOUND)
-
-find_package(glm REQUIRED)
-if (glm_FOUND)
+find_package(GLM REQUIRED)
+if (GLM_FOUND)
     include_directories(${GLM_INCLUDE_DIRS})
-    target_link_libraries (NervousEngine ${GLM_LIBRARIES})
-endif(glm_FOUND)
+endif(GLM_FOUND)
 
-find_package(Bullet REQUIRED)
-if (Bullet_FOUND)
+find_package(STB REQUIRED)
+if (STB_FOUND)
+    include_directories(${STB_INCLUDE_DIRS})
+endif(STB_FOUND)
+
+find_package(BULLET REQUIRED)
+if (BULLET_FOUND)
     include_directories(${BULLET_INCLUDE_DIRS})
     target_link_libraries (NervousEngine ${BULLET_LIBRARIES})
-endif(Bullet_FOUND)
+endif(BULLET_FOUND)
 
-find_package(assimp REQUIRED)
-if (assimp_FOUND)
-    message(${ASSIMP_LIBRARY_DIRS})
-    message(${ASSIMP_LIBRARIES})
+find_package(ASSIMP REQUIRED)
+if (ASSIMP_FOUND)
     include_directories(${ASSIMP_INCLUDE_DIRS})
-#    target_link_libraries (NervousEngine ${ASSIMP_LIBRARIES})
-endif(assimp_FOUND)
+    target_link_libraries (NervousEngine ${ASSIMP_LIBRARIES})
+endif(ASSIMP_FOUND)
 
-find_package(freetype REQUIRED)
-if (freetype_FOUND)
+find_package(FREETYPE REQUIRED)
+if (FREETYPE_FOUND)
     include_directories(${FREETYPE_INCLUDE_DIRS})
     target_link_libraries (NervousEngine ${FREETYPE_LIBRARIES})
-endif(freetype_FOUND)
+endif(FREETYPE_FOUND)
 
-find_package(libnoise REQUIRED)
-if (libnoise_FOUND)
+find_package(LIBNOISE REQUIRED)
+if (LIBNOISE_FOUND)
     include_directories(${LIBNOISE_INCLUDE_DIRS})
-#    target_link_libraries (NervousEngine ${LIBNOISE_LIBRARIES})
-endif(libnoise_FOUND)
-
-# GLAD, header only library
-include_directories(${CMAKE_CURRENT_LIST_DIR}/glad/include)
-# STB, header only library
-include_directories(${CMAKE_CURRENT_LIST_DIR}/stb/)
-
-# NB!
-# freetype-config.cmake, libnoise-config.cmake -> Made manually as build system did not generate them
+    target_link_libraries (NervousEngine ${LIBNOISE_LIBRARIES})
+endif(LIBNOISE_FOUND)

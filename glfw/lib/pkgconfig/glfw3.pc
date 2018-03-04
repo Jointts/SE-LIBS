@@ -1,4 +1,4 @@
-prefix=/home/jointts/CLionProjects/OpenGL/lib/glfw
+prefix=/home/jointts/CLionProjects/NE/lib/glfw
 exec_prefix=${prefix}
 includedir=${prefix}/include
 libdir=${exec_prefix}/lib
