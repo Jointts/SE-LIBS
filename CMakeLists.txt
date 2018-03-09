@@ -1,11 +1,11 @@
-# Setups all dependencies for NervousEngine
+# Setups all dependencies for SummitEngine
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
 
 find_package(GLFW REQUIRED)
 if (GLFW_FOUND)
     include_directories(SYSTEM ${GLFW_INCLUDE_DIRS})
-    target_link_libraries (NervousEngine ${GLFW_LIBRARIES})
+    target_link_libraries (SummitEngine ${GLFW_LIBRARIES})
 endif(GLFW_FOUND)
 
 find_package(GLAD REQUIRED)
@@ -26,23 +26,23 @@ endif(STB_FOUND)
 find_package(BULLET REQUIRED)
 if (BULLET_FOUND)
     include_directories(SYSTEM ${BULLET_INCLUDE_DIRS})
-    target_link_libraries (NervousEngine ${BULLET_LIBRARIES})
+    target_link_libraries (SummitEngine ${BULLET_LIBRARIES})
 endif(BULLET_FOUND)
 
 find_package(ASSIMP REQUIRED)
 if (ASSIMP_FOUND)
     include_directories(SYSTEM ${ASSIMP_INCLUDE_DIRS})
-    target_link_libraries (NervousEngine ${ASSIMP_LIBRARIES})
+    target_link_libraries (SummitEngine ${ASSIMP_LIBRARIES})
 endif(ASSIMP_FOUND)
 
 find_package(FREETYPE REQUIRED)
 if (FREETYPE_FOUND)
     include_directories(SYSTEM ${FREETYPE_INCLUDE_DIRS})
-    target_link_libraries (NervousEngine ${FREETYPE_LIBRARIES})
+    target_link_libraries (SummitEngine ${FREETYPE_LIBRARIES})
 endif(FREETYPE_FOUND)
 
 find_package(LIBNOISE REQUIRED)
 if (LIBNOISE_FOUND)
     include_directories(SYSTEM ${LIBNOISE_INCLUDE_DIRS})
-    target_link_libraries (NervousEngine ${LIBNOISE_LIBRARIES})
+    target_link_libraries (SummitEngine ${LIBNOISE_LIBRARIES})
 endif(LIBNOISE_FOUND)
